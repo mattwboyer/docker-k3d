@@ -1,0 +1,67 @@
+services:
+  server:
+    build: ./server
+    container_name: k3s-server
+    ports:
+      - "6443:6443"
+    privileged: true
+    volumes:
+      - k3s-server-data:/var/lib/rancher/k3s
+      - ./kubeconfig:/etc/rancher/k3s
+    networks:
+      - k3s-net
+    environment:
+      - K3S_TOKEN=supersecret
+
+  agent1:
+    build: ./agent
+    container_name: k3s-agent-1
+    privileged: true
+    tmpfs:
+      - /run
+      - /var/run
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    security_opt:
+      - seccomp=unconfined
+    depends_on:
+      - server
+    environment:
+      - K3S_TOKEN=supersecret
+    networks:
+      - k3s-net
+    command: >
+      sh -c "
+        until nc -z k3s-server 6443; do echo 'Waiting for server...'; sleep 2; done;
+        echo 'Starting agent...';
+        k3s agent --server https://k3s-server:6443 --token supersecret --node-name k3s-agent-1 --snapshotter native --v=4"
+
+  agent2:
+    build: ./agent
+    container_name: k3s-agent-2
+    privileged: true
+    tmpfs:
+      - /run
+      - /var/run
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    security_opt:
+      - seccomp=unconfined
+    depends_on:
+      - server
+    environment:
+      - K3S_TOKEN=supersecret
+    networks:
+      - k3s-net
+    command: >
+      sh -c "
+        until nc -z k3s-server 6443; do echo 'Waiting for server...'; sleep 2; done;
+        echo 'Starting agent...';
+        k3s agent --server https://k3s-server:6443 --token supersecret --node-name k3s-agent-2 --snapshotter native --v=4"
+
+volumes:
+  k3s-server-data:
+
+networks:
+  k3s-net:
+    driver: bridge
