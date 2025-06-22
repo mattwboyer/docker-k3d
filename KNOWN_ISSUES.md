@@ -15,3 +15,13 @@
     svclb-traefik-1444d21c-vqxgk              2/2     Running     0          2m39s
     traefik-c98fdf6fb-vh69k                   1/1     Running     0          2m39s
     ```
+    ``` bash
+    # MacOS
+    $ k -n kube-system get po
+    NAME                                      READY   STATUS              RESTARTS   AGE
+    coredns-697968c856-mlxfk                  0/1     ContainerCreating   0          2m7s
+    helm-install-traefik-89v7s                0/1     ContainerCreating   0          2m7s
+    helm-install-traefik-crd-8qjs7            0/1     ContainerCreating   0          2m7s
+    local-path-provisioner-774c6665dc-j8cns   0/1     ContainerCreating   0          2m7s
+    metrics-server-6f4c6675d5-f76pq           0/1     ContainerCreating   0          2m7s
+    ```
