@@ -7,6 +7,8 @@ services:
     privileged: true
     volumes:
       - k3s-server-data:/var/lib/rancher/k3s
+      - ./metrics-server.yaml:/var/lib/rancher/k3s/server/manifests/metrics-server.yaml
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
       - ../kubeconfig:/etc/rancher/k3s
     networks:
       - k3s-net

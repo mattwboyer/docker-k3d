@@ -1,6 +1,9 @@
 FROM debian:bullseye-slim
 
-RUN apt-get update && apt-get install -y curl iptables bash netcat && curl -Lo /usr/local/bin/k3s https://github.com/k3s-io/k3s/releases/latest/download/k3s && chmod +x /usr/local/bin/k3s
+RUN apt-get update && apt-get install -y curl iptables bash netcat && \
+curl -Lo /usr/local/bin/k3s https://github.com/k3s-io/k3s/releases/latest/download/k3s && \
+curl -Lo ./metrics-server.yaml https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml && \
+chmod +x /usr/local/bin/k3s
 
 RUN mkdir -p /etc/rancher/k3s
 

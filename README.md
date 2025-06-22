@@ -26,5 +26,8 @@ $ cd ./scripts
 $ source ./destroy-cluster.sh
 ```
 
+### Included Features
+- Metrics Server API
+
 ### Comments?
 Email [Matt Boyer](mboyer87@gmail.com) with any comments or suggestions you might have!
