@@ -7,7 +7,7 @@ services:
     privileged: true
     volumes:
       - k3s-server-data:/var/lib/rancher/k3s
-      - ./kubeconfig:/etc/rancher/k3s
+      - ../kubeconfig:/etc/rancher/k3s
     networks:
       - k3s-net
     environment:
