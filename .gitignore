@@ -2,4 +2,5 @@
 .vscode/
 
 # Kubeconfig
+docker/metrics-server.yaml
 kubeconfig
