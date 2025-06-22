@@ -11,6 +11,15 @@ $ cd ./scripts
 $ source ./init-cluster.sh
 ```
 
+After `docker-compose-up` runs, wait 10 seconds to confirm your cluster is up and running:
+``` bash
+$ k get nodes
+NAME          STATUS   ROLES                  AGE   VERSION
+k3s-agent-1   Ready    <none>                 5s    v1.33.1+k3s1
+k3s-agent-2   Ready    <none>                 8s    v1.33.1+k3s1
+k3s-server    Ready    control-plane,master   13s   v1.33.1+k3s1
+```
+
 ### Destroying cluster
 ``` bash
 $ cd ./scripts
