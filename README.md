@@ -2,6 +2,9 @@
 
 Creates a lightweight, multi-node cluster running k3s over Docker
 
+### Before running
+- Ensure you have Docker installed on your computer and running.
+
 ### Initializing cluster
 ``` bash
 $ cd ./scripts
