@@ -2,4 +2,4 @@
 .vscode/
 
 # Kubeconfig
-./kubeconfig
+kubeconfig
