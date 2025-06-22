@@ -30,4 +30,4 @@ $ source ./destroy-cluster.sh
 - Metrics Server API (MacOS only)
 
 ### Comments?
-Email [Matt Boyer](mboyer87@gmail.com) with any comments or suggestions you might have!
+Email [Matt Boyer](mailto:mboyer87@gmail.com) with any comments or suggestions you might have!

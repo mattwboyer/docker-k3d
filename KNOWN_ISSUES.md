@@ -1,5 +1,5 @@
-- `kube-system` namespaced pods aren't healthy over MacOS
-  - This is likely due to differences in low-level Linux kernel feature support between Docker environments on Windows and macOS.
+1. `kube-system` namespaced pods aren't healthy over MacOS
+    - This is likely due to differences in low-level Linux kernel feature support between Docker environments on Windows and macOS.
 
 ``` bash
 # Windows/WSL
