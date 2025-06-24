@@ -1,6 +1,6 @@
-# Docker-k3d
+# Docker-k3d-wsl
 
-Creates a lightweight, multi-node cluster running k3s over Docker
+Creates a lightweight, multi-node cluster running k3s over Docker Desktop for Windows
 
 ### Before running
 - Ensure you have Docker installed on your computer and running.
@@ -27,7 +27,7 @@ $ source ./destroy-cluster.sh
 ```
 
 ### Included Features
-- Metrics Server API (MacOS only)
+- Metrics Server API
 
 ### Comments?
 Email [Matt Boyer](mailto:mboyer87@gmail.com) with any comments or suggestions you might have!
